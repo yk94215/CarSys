@@ -25,14 +25,27 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    public Car findCarBookStatusById(int id) {
+        return carDao.findCarBookStatusById(id);
+    }
+
+    @Override
     public List<Car> findByCarName(String carName) {
         return carDao.findByCarName(carName);
     }
 
     @Override
+    public List<Car> findByCarNameMohu(String carName) {
+        return carDao.findByCarNameMohu(carName);    }
+
+    @Override
     public void deleteById(int id) {
         carDao.deleteById(id);
     }
+
+    @Override
+    public void bookedByid(int id) { carDao.bookByid(id); }
+
 
     @Override
     public void updateById(Car car) {

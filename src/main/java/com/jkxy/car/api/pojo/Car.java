@@ -7,6 +7,15 @@ public class Car {
     private String carType;
     private String price;
     private String carSeries;
+    public  int getIsBooked() {
+        return isBooked;
+    }
+
+    public void setIsBooked(int isBooked) {
+        this.isBooked = isBooked;
+    }
+
+    private int isBooked; //增加购买状态标志
 
     public int getId() {
         return id;

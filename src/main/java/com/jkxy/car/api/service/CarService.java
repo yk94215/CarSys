@@ -11,9 +11,13 @@ public interface CarService {
 
     Car findById(int id);
 
+    Car findCarBookStatusById(int id);
+
     List<Car> findByCarName(String carName);
+    List<Car> findByCarNameMohu(String carName);
 
     void deleteById(int id);
+    void bookedByid(int id);
 
     void updateById(Car car);
 

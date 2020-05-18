@@ -14,8 +14,18 @@ public interface CarDao {
     @Select("select * from carMessage where id = #{id}")
     Car findById(int id);
 
+    @Select("select * from carMessage where id = #{id}")
+    Car findCarBookStatusById(int id);
+
+    @Update("update carMessage set isBooked = 1  where id = #{id} and isBooked = 0 ")
+    void bookByid(int id);
+
+
     @Select("select * from carMessage where carName = #{carName}")
     List<Car> findByCarName(String carName);
+
+    @Select("select * from carMessage where carName like CONCAT('%',#{carName},'%')")
+    List<Car> findByCarNameMohu(String carName);
 
     @Delete("delete from carMessage where id = #{id}")
     void deleteById(int id);

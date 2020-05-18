@@ -40,6 +40,18 @@ public class CarController {
     }
 
     /**
+     * 通过ID查车购买情况
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("findCarBookStatusById/{id}")
+    public JSONResult findCarBookStatusById(@PathVariable int id) {
+        Car car = carService.findCarBookStatusById(id);
+        return JSONResult.ok(car);
+    }
+
+    /**
      * 通过车名查询
      *
      * @param carName
@@ -50,7 +62,17 @@ public class CarController {
         List<Car> cars = carService.findByCarName(carName);
         return JSONResult.ok(cars);
     }
-
+    /**
+     * 通过模糊车名查询
+     *
+     * @param carName
+     * @return
+     */
+    @GetMapping("findByCarNameMohu/{carName}")
+    public JSONResult findByCarNameMohu(@PathVariable String carName) {
+        List<Car> cars = carService.findByCarNameMohu(carName);
+        return JSONResult.ok(cars);
+    }
     /**
      * 通过id删除
      *
@@ -85,4 +107,16 @@ public class CarController {
         carService.insertCar(car);
         return JSONResult.ok();
     }
+    /**
+     * 通过id更新买车
+     *
+     * @return
+     */
+    @PostMapping("bookedByid/{id}")
+    public JSONResult bookedByid(@PathVariable int id) {
+        carService.bookedByid(id);
+        return JSONResult.ok();
+    }
+
+
 }
